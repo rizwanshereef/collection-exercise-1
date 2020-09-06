@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /*Main Class to update and delete elements of an array list*/
-public class Main {
+public class UpdateEmptyList {
 
     public static void main(String[] args) {
 /*Storing strings as array of String*/
