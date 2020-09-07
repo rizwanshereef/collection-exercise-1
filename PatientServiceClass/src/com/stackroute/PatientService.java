@@ -1,36 +1,43 @@
 package com.stackroute;
+import java.util.HashSet;
+import java.util.Set;
 
-import java.util.*;
+/*PatientService class to add, search patients*/
 
 public class PatientService {
-    Set<Patient> patientSet = new HashSet<>();
-/*Method to add the patient details to set*/
+    Set<Patient> patients = new HashSet();
+
     public void addPatient(int registrationNumber, String name, char gender) {
-        Patient patientOne = new Patient();
-        patientOne.setRegistrationNumber(registrationNumber);
-        patientOne.setName(name);
-        patientOne.setGender(gender);
-        patientSet.add(patientOne);
+        Patient patient = new Patient();    //created object for Patient
+/*Set values to the class patient*/
+        patient.setRegistrationNumber(registrationNumber);
+        patient.setName(name);
+        patient.setGender(gender);
+        patients.add(patient);
+        /*Display list at each addition to list*/
+        System.out.println(patients);
+
     }
-/*Method to search the patient with registration number*/
+
+/*Method to search patient from given registration number*/
     public void searchPatient(int registrationNumber) {
-        for (Patient patient : patientSet) {
+        for (Patient patient : patients) {
             if (patient.getRegistrationNumber() == registrationNumber) {
-                System.out.println(patient);
+                System.out.println("\n"+patient);
+                break;
             } else {
                 System.out.println("Patient not found");
             }
         }
     }
-/*Method to return list of sorted patient details of given gender*/
+/*Method to return set of patients with given gender in ascending order of name*/
     public Set<Patient> getAllPatientsByGender(char gender) {
-        Set<Patient> patientSort = new TreeSet<>();
-        for (Patient patient : patientSet) {
+        Set<Patient> patientSet = new HashSet();
+        for (Patient patient : patients) {
             if (patient.getGender() == gender) {
-                patientSort.add(patient);
+                patientSet.add(patient);
             }
         }
-        return patientSort; // returning result
+        return patientSet; 
     }
-
 }

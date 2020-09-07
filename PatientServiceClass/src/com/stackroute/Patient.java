@@ -37,4 +37,13 @@ public class Patient {
     public void setGender(char gender) {
         this.gender = gender;
     }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "registrationNumber=" + registrationNumber +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                '}';
+    }
 }
